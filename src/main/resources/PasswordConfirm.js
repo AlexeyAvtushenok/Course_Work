@@ -2,8 +2,8 @@
 
 
 function Validate() {
-    var password = document.forms["vform"]["password"];
-    var password_repeat = document.forms["vform"]['password_repeat'];
+    var password = document.getElementById("password");
+    var password_repeat = document.getElementById("password_repeat");
     var error = document.getElementById("pass_error");
 
    if(!(password.value === password_repeat.value)){
