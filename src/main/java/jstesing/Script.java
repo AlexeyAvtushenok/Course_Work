@@ -2,28 +2,20 @@ package jstesing;
 
 
 
-import java.io.File;
+import java.io.FileReader;
 
-public abstract class Script {
+public class Script {
 
-    private File file;
-    private String jsText;
+    private FileReader reader;
     private String path;
+    private String functionName;
 
-    public File getFile() {
-        return file;
+    public FileReader getReader() {
+        return reader;
     }
 
-    public void setFile(File file) {
-        this.file = file;
-    }
-
-    public String getJsText() {
-        return jsText;
-    }
-
-    public void setJsText(String jstext) {
-        this.jsText = jstext;
+    public void setReader(FileReader reader) {
+        this.reader = reader;
     }
 
     public String getPath() {
@@ -32,5 +24,13 @@ public abstract class Script {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public String getFunctionName() {
+        return functionName;
+    }
+
+    public void setFunctionName(String functionName) {
+        this.functionName = functionName;
     }
 }

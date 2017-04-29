@@ -1,5 +1,3 @@
-square_equation();
-
 function square_equation() {
     var a = a1;
     var b = b1;
@@ -32,6 +30,5 @@ function square_equation() {
         }
     }
 
-
-}
+};
 
