@@ -1,4 +1,5 @@
-import jstesing.*;
+import org.junit.Assume;
+import scripttesing.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,13 +14,13 @@ public class JsTest {
         Script script = scriptManager.downloadScript("src/main/resources/factorial.js");
         script.setFunctionName("fact");
 
-        double result = (double) scriptManager.executeScript(script, "5");
-        Assert.assertEquals(120, result, 0.01);
+        double factResult = (double) scriptManager.executeScript(script, "5");
+        Assert.assertEquals(120, factResult, 0.01);
 
     }
     @Test
     public void QuadrEqTest() throws Exception{
-        JsScriptManager scriptManager = new JsScriptManager();
+        ScriptManager scriptManager = new JsScriptManager();
         Script script = scriptManager.downloadScript("src/main/resources/qadratic_equation.js");
         script.setFunctionName("square_equation");
 
@@ -30,9 +31,9 @@ public class JsTest {
 
 
         double[] expected = {-0.5, 0.866, -0.5,-0.866};
-        double[] result = (double[]) scriptManager.executeScript(script, bindings);
+        double[] squareResult = (double[]) ((JsScriptManager)scriptManager).executeScript(script, bindings);
 
-        Assert.assertArrayEquals(expected,result,0.001);
+        Assert.assertArrayEquals(expected,squareResult,0.001);
 
     }
 }

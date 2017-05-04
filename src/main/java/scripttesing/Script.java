@@ -1,4 +1,4 @@
-package jstesing;
+package scripttesing;
 
 
 

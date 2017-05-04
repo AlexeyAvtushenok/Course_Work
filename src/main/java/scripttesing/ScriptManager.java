@@ -1,4 +1,4 @@
-package jstesing;
+package scripttesing;
 
 
 import javax.script.ScriptEngine;
@@ -16,8 +16,8 @@ public abstract class ScriptManager {
     }
 
     public abstract Script downloadScript(String path);
-    public abstract Object executeScript(Script script) throws JScriptException;
-    public abstract Object executeScript(Script script, String ... args) throws JScriptException;
+    public abstract Object executeScript(Script script) throws ScriptTestException;
+    public abstract Object executeScript(Script script, String ... args) throws ScriptTestException;
 
 
 }

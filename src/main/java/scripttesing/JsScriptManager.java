@@ -1,4 +1,4 @@
-package jstesing;
+package scripttesing;
 
 
 
@@ -30,33 +30,33 @@ public class JsScriptManager extends ScriptManager {
     }
 
     @Override
-    public Object executeScript(Script script) throws JScriptException {
+    public Object executeScript(Script script) throws ScriptTestException {
         Object result = null;
         try {
             result = getEngine().eval(script.getReader());
             Invocable invocable = (Invocable) getEngine();
             result =  invocable.invokeFunction(script.getFunctionName());
         } catch (javax.script.ScriptException | NoSuchMethodException e) {
-            throw new JScriptException(e);
+            throw new ScriptTestException(e);
         }
         return result;
     }
 
     @Override
-    public Object executeScript(Script script, String... args) throws JScriptException {
+    public Object executeScript(Script script, String... args) throws ScriptTestException {
         Object result = null;
         try {
             getEngine().eval(script.getReader());
             Invocable invocable = (Invocable) getEngine();
             result = invocable.invokeFunction(script.getFunctionName(), args);
         } catch (javax.script.ScriptException | NoSuchMethodException e) {
-            throw new JScriptException(e);
+            throw new ScriptTestException(e);
         }
         return result;
     }
 
 
-    public Object executeScript(Script script, Bindings binding, String... args) throws JScriptException {
+    public Object executeScript(Script script, Bindings binding, String... args) throws ScriptTestException {
         Object result = null;
         try {
 
@@ -65,13 +65,13 @@ public class JsScriptManager extends ScriptManager {
             Invocable invocable = (Invocable) getEngine();
             result =  invocable.invokeFunction(script.getFunctionName(),  args);
         } catch (javax.script.ScriptException | NoSuchMethodException e) {
-            throw new JScriptException(e);
+            throw new ScriptTestException(e);
         }
         return result;
     }
 
 
-    public Object executeScript(Script script, Bindings binding) throws JScriptException {
+    public Object executeScript(Script script, Bindings binding) throws ScriptTestException {
         Object result = null;
         try {
             getEngine().eval(script.getReader());
@@ -79,7 +79,7 @@ public class JsScriptManager extends ScriptManager {
             Invocable invocable = (Invocable) getEngine();
             result =  invocable.invokeFunction(script.getFunctionName());
         } catch (javax.script.ScriptException | NoSuchMethodException e) {
-            throw new JScriptException(e);
+            throw new ScriptTestException(e);
         }
         return result;
     }
